@@ -1,97 +1,96 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enhanced Dashboard | By Jeremy Chávez</title>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Enhanced Dashboard</title>
     <link rel="stylesheet" href="style.css" />
-    <link 
-        href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" 
-        rel="stylesheet"
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
     />
-</head>
-<body>
-  <div class="dashboard">
-    <div class="sidebar">
-      <div class="sidebar-icon active" data-tooltip="Home">
-        <i class="bx bx-home"></i>
-      </div>
-      <div class="sidebar-icon" data-tooltip="Dashboard">
-        <i class="bx bx-grid-alt"></i>
-      </div>
-      <div class="sidebar-icon" data-tooltip="Projects">
-        <i class="bx bx-briefcase"></i>
-      </div>
-      <div class="sidebar-icon" data-tooltip="Payments">
-        <i class="bx bx-credit-card"></i>
-      </div>
-      <div class="sidebar-icon" data-tooltip="Analytics">
-        <i class="bx bx-bar-chart"></i>
-      </div>
-      <div class="sidebar-icon" data-tooltip="Settings">
-        <i class="bx bx-cog"></i>
-      </div>
-      <div class="sidebar-icon" data-tooltip="Help">
-        <i class="bx bx-help-circle"></i>
-      </div>
-      <div class="sidebar-icon" data-tooltip="Logout">
-        <i class="bx bx-log-in-circle"></i>
-      </div>
-    </div>
-
-    <div class="main-content">
-      <div class="header">
-        <h1>Dashboard</h1>
-        <div class="search-bar">
-          <span>🔍</span>
-          <input type="text" placeholder="Search" />
+  </head>
+  <body>
+    <div class="dashboard">
+      <div class="sidebar">
+        <div class="sidebar-icon active" data-tooltip="Home">
+          <i class="bx bx-home"></i>
+        </div>
+        <div class="sidebar-icon" data-tooltip="Dashboard">
+          <i class="bx bx-grid-alt"></i>
+        </div>
+        <div class="sidebar-icon" data-tooltip="Projects">
+          <i class="bx bx-briefcase"></i>
+        </div>
+        <div class="sidebar-icon" data-tooltip="Payments">
+          <i class="bx bx-credit-card"></i>
+        </div>
+        <div class="sidebar-icon" data-tooltip="Analytics">
+          <i class="bx bx-bar-chart"></i>
+        </div>
+        <div class="sidebar-icon" data-tooltip="Settings">
+          <i class="bx bx-cog"></i>
+        </div>
+        <div class="sidebar-icon" data-tooltip="Help">
+          <i class="bx bx-help-circle"></i>
+        </div>
+        <div class="sidebar-icon" data-tooltip="Logout">
+          <i class="bx bx-log-in-circle"></i>
         </div>
       </div>
 
-      <div class="stats">
-        <div class="stat-card">
-          <h3>Total Income</h3>
-          <div class="stat-value">
-            $1200
-            <span>+45%</span>
+      <div class="main-content">
+        <div class="header">
+          <h1>Dashboard</h1>
+          <div class="search-bar">
+            <span>🔍</span>
+            <input type="text" placeholder="Search" />
           </div>
-        </div>
-        <div class="stat-card">
-          <h3>Total Expense</h3>
-          <div class="stat-value">
-            4.500K
-            <span>+45%</span>
-          </div>
-        </div>
-        <div class="stat-card">
-          <h3>Total Bonus</h3>
-          <div class="stat-value">
-            6.100k
-            <span>+45%</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="chart-container">
-        <canvas id="mainChart"></canvas>
-      </div>
-
-      <div class="bottom-cards">
-        <div class="card">
-          <div class="card-header">
-            <h3>Order Statistics</h3>
-            <div class="more-button">⋮</div>
-          </div>
-          <canvas id="orderChart"></canvas>
         </div>
 
-        <div class="card">
-          <div class="card-header">
-            <h3>Earnings Overview</h3>
-            <div class="more-button">⋮</div>
+        <div class="stats">
+          <div class="stat-card">
+            <h3>Total Income</h3>
+            <div class="stat-value">
+              $1200
+              <span>+45%</span>
+            </div>
           </div>
-          <canvas id="earningsChart"></canvas>
+          <div class="stat-card">
+            <h3>Total Expense</h3>
+            <div class="stat-value">
+              4.500K
+              <span>+45%</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <h3>Total Bonus</h3>
+            <div class="stat-value">
+              6.100k
+              <span>+45%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart-container">
+          <canvas id="mainChart"></canvas>
+        </div>
+
+        <div class="bottom-cards">
+          <div class="card">
+            <div class="card-header">
+              <h3>Order Statistics</h3>
+              <div class="more-button">⋮</div>
+            </div>
+            <canvas id="orderChart"></canvas>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h3>Earnings Overview</h3>
+              <div class="more-button">⋮</div>
+            </div>
+            <canvas id="earningsChart"></canvas>
+          </div>
         </div>
       </div>
 
@@ -175,45 +174,44 @@
         </div>
       </div>
     </div>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
       // Get chart contexts
       const mainCtx = document.getElementById("mainChart").getContext("2d");
       const orderCtx = document.getElementById("orderChart").getContext("2d");
       const earningsCtx = document
-          .getElementById("earningsChart")
-          .getContext("2d");
+        .getElementById("earningsChart")
+        .getContext("2d");
 
       // Common options
       const commonOptions = {
-          responsive: true,
-          maintainAspectRatio: false,
-          devicePixelRatio: 2,
-          interaction: {
+        responsive: true,
+        maintainAspectRatio: false,
+        devicePixelRatio: 2,
+        interaction: {
           mode: "index",
           intersect: false,
-          },
-          plugins: {
+        },
+        plugins: {
           tooltip: {
-              enabled: true,
-              backgroundColor: "#1e293b",
-              padding: 12,
-              titleFont: { size: 14 },
-              bodyFont: { size: 13 },
+            enabled: true,
+            backgroundColor: "#1e293b",
+            padding: 12,
+            titleFont: { size: 14 },
+            bodyFont: { size: 13 },
           },
           legend: { display: false },
-          },
+        },
       };
 
       // Main Chart
       new Chart(mainCtx, {
-          type: "line",
-          data: {
+        type: "line",
+        data: {
           labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
           datasets: [
-              {
+            {
               label: "Revenue",
               data: [1500, 2200, 1800, 2954, 2600, 3100],
               borderColor: "#6366f1",
@@ -225,55 +223,55 @@
               pointBackgroundColor: "#ffffff",
               pointBorderColor: "#6366f1",
               pointHoverRadius: 6,
-              },
+            },
           ],
-          },
-          options: {
+        },
+        options: {
           ...commonOptions,
           scales: {
-              y: {
+            y: {
               beginAtZero: true,
               grid: {
-                  display: true,
-                  color: "rgba(0, 0, 0, 0.05)",
+                display: true,
+                color: "rgba(0, 0, 0, 0.05)",
               },
-              },
-              x: {
+            },
+            x: {
               grid: {
-                  display: false,
+                display: false,
               },
-              },
+            },
           },
-          },
+        },
       });
 
       // Order Chart
       new Chart(orderCtx, {
-          type: "bar",
-          data: {
+        type: "bar",
+        data: {
           labels: ["Mon", "Tue", "Wed", "Thu", "Fri"],
           datasets: [
-              {
+            {
               data: [4200, 3800, 4800, 4100, 3700],
               backgroundColor: "#6366f1",
               borderRadius: 8,
               hoverBackgroundColor: "#818cf8",
-              },
+            },
           ],
-          },
-          options: {
+        },
+        options: {
           ...commonOptions,
           scales: {
-              y: {
+            y: {
               beginAtZero: true,
               grid: {
-                  color: "rgba(0, 0, 0, 0.05)",
+                color: "rgba(0, 0, 0, 0.05)",
               },
-              },
+            },
           },
-          },
+        },
       });
-      
+
       // Earnings Chart
       new Chart(earningsCtx, {
         type: "doughnut",
